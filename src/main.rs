@@ -1,3 +1,4 @@
+#[derive(Debug)] // use derive annotation to use Debug trait
 struct Rectangle {
     width: u32,
     height: u32,
@@ -13,8 +14,11 @@ fn main() {
         "The area of the rectangle is {} square pixels.",
         area(&rect1)
     );
+
+    println!("rect1 is {:?}", rect1);
+    println!("rect1 is {:#?}", rect1);
 }
 
-fn area(rectangle: &Rectangle) -> u32 {
+fn area(rectangle: &Rectangle) -> u32 { // rectangle borrows the rect1 struct rather than takes ownership of it.
     rectangle.width * rectangle.height
 }
